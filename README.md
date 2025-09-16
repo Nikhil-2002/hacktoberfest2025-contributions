@@ -51,8 +51,10 @@ This repo is open for your **first and last PR** of Hacktoberfest.
 - Fix bugs or enhance responsiveness  
 
 ### 📌 Contribution Guidelines
-1. **Fork this repo**
-2. 1. **Fork this repository** 🍴  
+## 📌 Steps to Contribute
+
+1. **Fork the Repository**  
+   - Fork from: https://github.com/Nikhil-2002/hacktoberfest2025-contributions
 2. **Clone your fork**:
    ```bash
    git clone https://github.com/Nikhil-2002/hacktoberfest-contributions.git
