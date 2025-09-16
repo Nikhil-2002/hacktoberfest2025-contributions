@@ -20,6 +20,22 @@ Contribute to any open-source repo on GitHub and earn **cool swag & a T-shirt** 
 - Create a collection of polished websites made by contributors.  
 
 ---
+## ✨ Why Contribute Here?
+✅ Beginner-friendly issues  
+✅ Work with real frontend projects  
+✅ Improve your React/JS/CSS/Tailwind skills  
+✅ Make meaningful contributions during Hacktoberfest  
+✅ Get listed as a contributor in this repo 🚀  
+
+---
+
+## 🛠️ Tech Stacks You Can Use
+- **React.js**
+- **JavaScript / TypeScript**
+- **Tailwind CSS**
+- **Bootstrap**
+- **Vanilla CSS / HTML**
+- **Any modern frontend framework**
 
 ## ✅ How to Contribute
 1. **Fork this repository** 🍴  
