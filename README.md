@@ -14,9 +14,17 @@ Contribute to any open-source repo on GitHub and earn **cool swag & a T-shirt** 
 
 ---
 
+## 🎯 Project Goal
+- Provide a beginner-friendly repo for Hacktoberfest.  
+- Encourage developers to practice **frontend development**, **UI/UX design**, and **adding functionality**.  
+- Create a collection of polished websites made by contributors.  
+
+---
+
 ## ✅ How to Contribute
-1. Fork this repository 🍴  
-2. Clone your fork to your local machine:
+1. **Fork this repository** 🍴  
+2. **Clone your fork**:
    ```bash
-   git clone https://github.com/your-username/hacktoberfest2025-contributions.git
+   git clone https://github.com/Nikhil-2002/hacktoberfest-contributions.git
+
 
