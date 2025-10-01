@@ -10,6 +10,58 @@
   color: #333;
 }
 
+.site-name {
+  font-size: 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+}
+
+.site-name .health {
+  color: #00bcd4; 
+  font-weight: 600;
+}
+
+.site-name .care {
+  color: #0b3d91; 
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+
+.sidebar {
+  width: 220px;
+  background-color: #e3f2fd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.sidebar-top {
+  flex: 1 1 auto;
+}
+
+.nav-group {
+  margin-top: 12px;
+}
+
+.nav-group-title {
+  margin: 8px 0;
+  font-size: 13px;
+  color: #6b7280; 
+}
+
+.sidebar-footer {
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+.sidebar-setting .sidebar-text {
+  font-weight: 600;
+}
+
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -20,4 +72,39 @@
   align-items: center;
   padding: 10px 0;
   font-size: 14px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #6b7280; 
+  width: 100%;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #0b3d91; 
+  outline: none;
+}
+
+
+.sidebar-link[aria-current="true"],
+.sidebar-link.active {
+  color: #0b3d91;
+  font-weight: 600;
+}
+
+.sidebar-icon {
+  width: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.sidebar-text {
+  flex: 1;
 }
