@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { BsLightbulb, BsSearch, BsArrowLeft } from 'react-icons/bs';
 import QuestionAccordion from '../components/QuestionAccordion';
 import basicQuestions from '../data/basicQuestions.json';
+import usePagination from '../hooks/usePagination';
 
 const BasicQuestions = () => {
   const theme = useSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
   const questionsPerPage = 10;
 
   // Filter questions based on search term
@@ -18,16 +18,11 @@ const BasicQuestions = () => {
     question.answer.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination logic
-  const indexOfLastQuestion = currentPage * questionsPerPage;
-  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
-  const currentQuestions = filteredQuestions.slice(indexOfFirstQuestion, indexOfLastQuestion);
-  const totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+  // Use pagination hook
+  const { currentItems, totalPages, currentPage, handlePageChange } = usePagination(filteredQuestions, questionsPerPage);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const indexOfFirstQuestion = (currentPage - 1) * questionsPerPage + 1;
+  const indexOfLastQuestion = indexOfFirstQuestion + currentItems.length - 1;
 
   return (
     <div className={`min-vh-100 ${theme === 'dark' ? 'bg-dark text-light' : 'bg-light text-dark'}`} style={{ paddingTop: '80px' }}>
@@ -79,10 +74,7 @@ const BasicQuestions = () => {
                 type="text"
                 placeholder="Search questions..."
                 value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  setCurrentPage(1); // Reset to first page when searching
-                }}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className={`ps-5 ${theme === 'dark' ? 'bg-dark text-light border-secondary' : ''}`}
                 style={{ paddingLeft: '40px' }}
               />
@@ -90,15 +82,15 @@ const BasicQuestions = () => {
           </Col>
           <Col md={6} className="d-flex justify-content-end align-items-center">
             <small className={`${theme === 'dark' ? 'text-muted' : 'text-secondary'}`}>
-              Showing {indexOfFirstQuestion + 1}-{Math.min(indexOfLastQuestion, filteredQuestions.length)} of {filteredQuestions.length} questions
+              Showing {indexOfFirstQuestion}-{indexOfLastQuestion} of {filteredQuestions.length} questions
             </small>
           </Col>
         </Row>
 
         {/* Questions */}
-        {currentQuestions.length > 0 ? (
+        {currentItems.length > 0 ? (
           <QuestionAccordion
-            questions={currentQuestions}
+            questions={currentItems}
             title=""
             icon={BsLightbulb}
             badgeColor="success"
