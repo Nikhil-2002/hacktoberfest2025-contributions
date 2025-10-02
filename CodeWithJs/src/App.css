@@ -382,7 +382,6 @@ a:hover {
   border: none !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
 [data-bs-theme="dark"] .accordion-item {
@@ -404,7 +403,6 @@ a:hover {
   padding: 1.5rem;
   border: none;
   position: relative;
-  overflow: hidden;
 }
 
 .accordion-button:not(.collapsed) {
