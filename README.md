@@ -55,9 +55,10 @@ This repo is open for your **first and last PR** of Hacktoberfest.
 2. **Clone your fork**:
    ```bash
    git clone https://github.com/Nikhil-2002/hacktoberfest-contributions.git
-3. **Create your own branch** (`yourname-feature`)  
-4. Make changes and **commit with clear messages**  
-5. **Push to your fork** and raise a **Pull Request**  
+3. **Create your own branch** (`yourname-feature`)
+4. **Add the changes in your branch** (`git add "where the changes made" `)
+5. Make changes and **commit with clear messages**  
+6. **Push to your fork** and raise a **Pull Request**  
 
 Your PR will be reviewed and merged if it follows the contribution rules.  
 
