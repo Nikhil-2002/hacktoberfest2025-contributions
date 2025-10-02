@@ -1,0 +1,36 @@
+.activity-feed {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .bar-chart {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  .bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20px;
+  }
+  .fill {
+    width: 100%;
+    background-color: #377dff;
+    border-radius: 5px 5px 0 0;
+  }
+  .day {
+    margin-top: 5px;
+    font-size: 0.7rem;
+    color: #8092ae;
+  }
+  .appointments-note {
+    font-size: 0.7rem;
+    color: #8092ae;
+    text-align: right;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+  

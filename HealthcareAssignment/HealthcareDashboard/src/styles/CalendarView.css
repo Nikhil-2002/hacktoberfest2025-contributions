@@ -1,0 +1,45 @@
+.calendar-view {
+    background: #f7fafd;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+  }
+  .calendar-header, .calendar-dates {
+    display: flex;
+    gap: 10px;
+  }
+  .day-header {
+    min-width: 35px;
+    font-weight: 800;
+    color: #7e8ea7;
+    text-align: center;
+  }
+  .calendar-date {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 5px;
+    min-width: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .current-date {
+    background-color: #5576ff;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+  }
+  .calendar-event {
+    background-color: #e5edfa;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #33475b;
+    padding: 5px 12px;
+    width: max-content;
+  }
+  

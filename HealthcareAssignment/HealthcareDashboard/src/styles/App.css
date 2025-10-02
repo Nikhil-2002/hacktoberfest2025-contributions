@@ -1,4 +1,4 @@
-.app-container {
+/* .app-container {
   display: flex;
   height: 100vh;
   background-color: #f4f7fc;
@@ -9,4 +9,46 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+} */
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #0f2041;
+  color: #33475b;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;          /* full viewport height */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-content {
+  flex: 1;                /* take up remaining space */
+  background: #f7fafd;
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 0;           /* important for flex shrinking */
+}
+
+.dashboard-main-content {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  flex: 1;                /* take all available space */
+  justify-content: space-between; /* spread left and right sections */
+}
+
+.left-section, .right-section {
+  flex: 1 1 0;             /* grow and shrink equally */
+  min-width: 0;            /* allow shrinking properly */
 }

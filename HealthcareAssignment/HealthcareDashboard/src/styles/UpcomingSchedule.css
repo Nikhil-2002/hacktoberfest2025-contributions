@@ -1,0 +1,32 @@
+.upcoming-schedule {
+    background-color: #f7fafd;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .upcoming-schedule h3 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  .schedule-day {
+    margin-bottom: 20px;
+  }
+  .schedule-day h4 {
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .schedule-event {
+    background: #e5edfa;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #33475b;
+  }
+  .schedule-time {
+    font-weight: 400;
+    color: #7e8ea7;
+  }
+  

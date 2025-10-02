@@ -1,4 +1,4 @@
-.sidebar {
+/* .sidebar {
   width: 220px;
   background-color: #e3f2fd;
   padding: 20px;
@@ -20,4 +20,50 @@
   align-items: center;
   padding: 10px 0;
   font-size: 14px;
+} */
+
+.sidebar {
+  background: #e1ebff;
+  border-radius: 25px;
+  padding: 20px 15px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.logo {
+  color: #37a4ff;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sidebar ul li {
+  color: #9da9bb;
+  padding: 10px 10px;
+  margin: 12px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+.sidebar ul li.active, .sidebar ul li:hover {
+  color: #33475b;
+  background: #c1d9ff;
+  border-radius: 10px;
+}
+.sidebar .tools {
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+  color: #9da9bb;
+  font-size: 0.9rem;
+}
+.sidebar-bottom {
+  color: #9da9bb;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #cbd6e2;
 }
