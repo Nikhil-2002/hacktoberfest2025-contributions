@@ -138,7 +138,9 @@ const BasicQuestions = () => {
 
                 {/* Show current and surrounding pages */}
                 {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
-                  const pageNum = Math.max(1, Math.min(currentPage - 2 + index, totalPages - 4 + index));
+                  let start = Math.max(1, Math.min(currentPage - 2, totalPages - 4));
+                  const pageNum = start + index;  // For uniques pageNum
+                  // const pageNum = Math.max(1, Math.min(currentPage - 2 + index, totalPages - 4 + index));
                   if (pageNum <= totalPages && pageNum >= 1) {
                     return (
                       <Pagination.Item
