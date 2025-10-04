@@ -1,4 +1,4 @@
-.dashboard-main {
+/* .dashboard-main {
   padding: 20px;
 }
 
@@ -28,4 +28,20 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+} */
+
+
+.dashboard-main-content {
+  display: flex;
+  gap: 40px;
+}
+.left-section {
+  flex: 1;
+}
+.right-section {
+  flex: 1;
+}
+h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
 }

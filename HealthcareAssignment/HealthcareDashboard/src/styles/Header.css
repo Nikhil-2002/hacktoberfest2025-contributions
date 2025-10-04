@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,4 +13,46 @@
   background: #f0f0f0;
   padding: 5px 10px;
   border-radius: 8px;
+} */
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.logo {
+  font-weight: 700;
+  color: #37a4ff;
+  font-size: 1.7rem;
+}
+.search-box {
+  flex: 1;
+  margin: 0 15px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 1px solid #c7d2e6;
+  font-size: 1rem;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+}
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.avatar {
+  background: #4269f2;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
 }
