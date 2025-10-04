@@ -10,6 +10,10 @@ import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import BasicQuestions from './pages/BasicQuestions';
+import AdvancedQuestions from './pages/AdvancedQuestion';
+import IntermediateQuestion from './pages/IntermediateQuestion';
+import InterviewQuestion from './pages/InterviewQuestion';
+import PseudoCodes from './pages/PseudoCodes';
 
 // Import question data
 import basicQuestions from './data/basicQuestions.json';
@@ -232,6 +236,10 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/basic" element={<BasicQuestions />} />
+        <Route path="/advanced" element={<AdvancedQuestions />} />
+        <Route path="/intermediate" element={<IntermediateQuestion/>} />
+        <Route path="/interview" element={<InterviewQuestion/>} />
+        <Route path="/pseudo" element={<PseudoCodes/>} />
         {/* Add other category routes here later */}
       </Routes>
       
