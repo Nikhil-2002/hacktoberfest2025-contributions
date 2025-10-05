@@ -17,6 +17,7 @@ import {
   X
 } from 'lucide-react';
 import { toggleDarkMode } from '../store/slices/themeSlice';
+import Logo from '../assets/Logo.png';
 import { logout } from '../store/slices/authSlice';
 import AuthModal from './AuthModal';
 
@@ -93,9 +94,9 @@ const Navbar = () => {
             >
               <Menu size={24} />
             </button>
-            <img 
-              src="/Logo.png" 
-              alt="JS Practice Platform" 
+            <img
+              src={Logo}
+              alt="JS Practice Platform"
               className="w-12 h-12 object-contain rounded-lg shadow-md"
             />
             <h1 className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
@@ -149,9 +150,9 @@ const Navbar = () => {
         <div className="navbar-header">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img 
-                src="/Logo.png" 
-                alt="JS Practice Platform" 
+              <img
+                src={Logo}
+                alt="JS Practice Platform"
                 className="w-10 h-10 object-contain rounded-lg shadow-sm"
               />
               <span className="text-white font-semibold text-lg">JS Practice</span>
