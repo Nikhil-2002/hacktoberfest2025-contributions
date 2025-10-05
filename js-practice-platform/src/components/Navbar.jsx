@@ -99,7 +99,7 @@ const Navbar = () => {
               alt="JS Practice Platform"
               className="w-12 h-12 object-contain rounded-lg shadow-md"
             />
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
+            <h1 className="text-xl font-bold text-gray-100 dark:text-gray-800 hidden sm:block">
               JS Practice Platform
             </h1>
           </div>

@@ -90,7 +90,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="dashboard-header mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-3xl font-bold text-gray-100 dark:text-gray-800 mb-2">
           Welcome to JavaScript Practice Platform
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-lg">
@@ -109,7 +109,7 @@ const Dashboard = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
                     {stat.title}
                   </p>
-                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  <p className="text-2xl font-bold text-gray-100 dark:text-gray-800">
                     {stat.value}
                   </p>
                 </div>
@@ -161,7 +161,7 @@ const Dashboard = () => {
 
       {/* Recent Activity Section */}
       <div className="mt-12">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-2xl font-bold text-gray-100 dark:text-gray-800 mb-6">
           Recent Activity
         </h2>
         <div className="card">
