@@ -81,8 +81,8 @@ const QuestionList = ({ category, title, description }) => {
   return (
     <div className="question-list-container">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">{title}</h1>
-        <p className="text-gray-600 dark:text-gray-400 text-lg">{description}</p>
+        <h1 className="text-3xl font-bold text-gray-100 dark:text-gray-800 mb-3">{title}</h1>
+        <p className="text-gray-100 dark:text-gray-800 text-lg">{description}</p>
         <div className="mt-4 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
           <span className="flex items-center gap-1">
             <Code size={16} />
