@@ -5,7 +5,7 @@ int get_1st_weekday(int year);
 
 int main(){
     int year,month,daysinmonth,day,count=0,startingday;
-    printf("enter the desired year:");
+    printf("enter the  year you need to see:");
     scanf("%d", &year);
 
     char *months[]={"january","february","march", "april","may","june","july","august", "september","october","november","december"};
