@@ -14,13 +14,17 @@ import {
   UserPlus,
   LogOut,
   Menu,
-  X
+  X,
+  PanelLeftClose, 
+  PanelLeftOpen
 } from 'lucide-react';
 import { toggleDarkMode } from '../store/slices/themeSlice';
 import { logout } from '../store/slices/authSlice';
 import AuthModal from './AuthModal';
+import Logo from '../assets/Logo.png'; 
 
-const Navbar = () => {
+
+const Navbar = ({ isCollapsed, onToggleSidebar }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { darkMode } = useSelector((state) => state.theme);
@@ -94,7 +98,7 @@ const Navbar = () => {
               <Menu size={24} />
             </button>
             <img 
-              src="/Logo.png" 
+              src={Logo}  
               alt="JS Practice Platform" 
               className="w-12 h-12 object-contain rounded-lg shadow-md"
             />
@@ -105,6 +109,14 @@ const Navbar = () => {
 
           {/* Right side actions */}
           <div className="flex items-center gap-3">
+            <button
+          onClick={onToggleSidebar}
+          // Use 'lg:flex' or 'md:flex' if those utility classes are preferred for visibility
+          className="btn-icon hidden md:flex" 
+          title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+      >
+          {isCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
+      </button>
             <button
               onClick={handleDarkModeToggle}
               className="btn-icon"
@@ -145,12 +157,12 @@ const Navbar = () => {
       </header>
 
       {/* Sidebar Navigation */}
-      <nav className={`navbar ${mobileMenuOpen ? 'open' : ''}`}>
+      <nav className={`navbar ${mobileMenuOpen ? 'open' : ''} ${isCollapsed ? 'collapsed' : ''}`}>
         <div className="navbar-header">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img 
-                src="/Logo.png" 
+                src={Logo} 
                 alt="JS Practice Platform" 
                 className="w-10 h-10 object-contain rounded-lg shadow-sm"
               />
@@ -176,7 +188,8 @@ const Navbar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Icon size={20} />
-                  {item.name}
+                  <span className="nav-link-text">{item.name}</span> 
+                  {/* REMOVED: The extra {item.name} that caused duplication */}
                 </Link>
               </li>
             );

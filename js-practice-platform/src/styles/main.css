@@ -39,14 +39,19 @@ body {
 /* Layout */
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
-  margin-left: 280px;
+  /* Default Mobile/Full-Width View (overwritten by desktop styles below) */
+  margin-left: 0;
   margin-top: 80px;
   padding: 20px;
   transition: margin-left 0.3s ease;
   min-height: calc(100vh - 80px);
+  width: 100%; /* Full width on mobile/small screens */
+  overflow-x: hidden; 
 }
 
 /* Navbar Styles */
@@ -415,6 +420,10 @@ body {
     margin-top: 80px;
     padding: 15px;
   }
+  .main-content.expanded {
+    margin-left: 80px; 
+    width: calc(100% - 80px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -434,6 +443,7 @@ body {
     margin-left: 0;
     margin-top: 80px;
     padding: 15px;
+    overflow-x: hidden;
   }
   
   .top-header {
@@ -629,10 +639,29 @@ body {
   .sm\:inline { display: inline; }
 }
 
+/* FIX: Centering and Layout for Desktop */
 @media (min-width: 768px) {
+  .main-content {
+    /* Base styles, already constrained with width: calc() */
+    margin-top: 80px; 
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    min-height: calc(100vh - 80px);
+    width: calc(100% - 280px); 
+    margin-left: 280px;
+    overflow-x: hidden;
+  }
+  
   .md\:hidden { display: none; }
   .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
   .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Apply the width constraint to the layout area *below* the header */
+.layout-wrapper { 
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -644,4 +673,87 @@ body {
   .xl\:w-1\/3 { width: 33.333333%; }
   .xl\:w-2\/3 { width: 66.666667%; }
   .xl\:flex-row { flex-direction: row; }
+  
+  /* Collapsed Sidebar: Narrow width */
+  .navbar.collapsed {
+    width: 80px;
+  }
+
+  /* Hide elements that shouldn't appear in the collapsed view */
+  .navbar.collapsed .navbar-header {
+    display: none;
+  }
+  
+  /* Center the navigation icons vertically */
+  .navbar.collapsed .nav-link {
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  /* Hide the link text when the sidebar is collapsed */
+  .navbar.collapsed .nav-link-text {
+    display: none;
+  }
+  
+  /* Remove spacing next to the icon when collapsed */
+  .navbar.collapsed .nav-link svg {
+    margin-right: 0; 
+  }
+
+  /* Main Content: Takes up the space freed by the collapsed sidebar */
+  .main-content.expanded {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+}
+
+/* FIX: Centering Content Block inside main-content */
+.content-wrapper {
+  max-width: 1400px; /* Limits the content width on very large screens */
+  width: 100%;
+  margin: 0 auto; /* CRITICAL: Centers the block horizontally */
+}
+
+/* FIX: White Text on White Background */
+/* FIX: Dashboard Text Visibility in both themes */
+
+/* --- Original .text-white utility --- */
+.text-white {
+  color: white;
+}
+
+/* FIX: Dashboard Text Visibility in both themes */
+/* --- Dashboard Numbers & Headings Fix --- */
+
+/* 1. Enforce DARK colors on ALL text utilities for LIGHT MODE (fixes light-on-light) */
+:not([data-theme="dark"]) .text-gray-900,
+:not([data-theme="dark"]) .text-gray-600,
+:not([data-theme="dark"]) .text-gray-700,
+:not([data-theme="dark"]) .text-white {
+    /* Set to the theme's default dark color to guarantee visibility on white background */
+    color: var(--text-primary) !important; 
+}
+
+
+/* 2. Enforce LIGHT colors on ALL text utilities for DARK MODE (fixes dark-on-dark) */
+
+[data-theme="dark"] .text-gray-900,
+[data-theme="dark"] .text-gray-600,
+[data-theme="dark"] .text-gray-700 {
+    /* For elements with light-mode utility classes, force them to the light primary color in dark mode */
+    color: var(--text-primary) !important; /* Should resolve to #FFFFFF */
+}
+
+/* Ensure ALL dark mode utilities are prioritized to white/light gray */
+[data-theme="dark"] .dark\:text-white {
+    color: white !important;
+}
+
+[data-theme="dark"] .dark\:text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-white {
+    /* Ensures the pure .text-white utility is also white in dark mode */
+    color: white !important;
 }

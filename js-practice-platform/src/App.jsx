@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { store } from './store';
@@ -13,6 +13,14 @@ import './styles/main.css';
 
 const AppContent = () => {
   const { darkMode } = useSelector((state) => state.theme);
+  
+  // 1. Add state for the sidebar collapse status
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  // Function to toggle the sidebar status
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(prev => !prev);
+  };
 
   useEffect(() => {
     // Apply theme to document
@@ -26,8 +34,14 @@ const AppContent = () => {
   return (
     <Router>
       <div className="app">
-        <Navbar />
-        <main className="main-content">
+        {/* 2. Pass the state and the toggle function as props to Navbar */}
+        <Navbar 
+          isCollapsed={isSidebarCollapsed}
+          onToggleSidebar={toggleSidebar}
+        />
+        
+        {/* 3. Conditionally apply the 'expanded' class to shift content when sidebar collapses */}
+        <main className={`main-content ${isSidebarCollapsed ? 'expanded' : ''}`}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/javascript-basics" element={<JavaScriptBasics />} />

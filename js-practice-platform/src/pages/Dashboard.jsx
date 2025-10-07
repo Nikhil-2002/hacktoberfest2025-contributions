@@ -89,14 +89,16 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="dashboard-header mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Welcome to JavaScript Practice Platform
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 text-lg">
-          Master JavaScript through hands-on practice and interactive exercises
-        </p>
-      </div>
+       <div className="dashboard-header mb-8">
+    {/* Use a base class that should be dark in light mode, and ensure dark:text-white is present */}
+    <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+      Welcome to JavaScript Practice Platform
+    </h1>
+    
+    <p className="text-gray-600 dark:text-gray-400 text-lg">
+      Master JavaScript through hands-on practice and interactive exercises
+    </p>
+  </div>
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -109,7 +111,7 @@ const Dashboard = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
                     {stat.title}
                   </p>
-                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  <p className="text-2xl font-bold text-gray-900 dark">
                     {stat.value}
                   </p>
                 </div>
