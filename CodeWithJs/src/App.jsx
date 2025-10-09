@@ -253,7 +253,6 @@ function App() {
         <Route path="/intermediate" element={<IntermediateQuestion/>} />
         <Route path="/interview" element={<InterviewQuestion/>} />
         <Route path="/pseudo" element={<PseudoCodes/>} />
-        {/* Add other category routes here later */}
       </Routes>
       
       <Footer />
