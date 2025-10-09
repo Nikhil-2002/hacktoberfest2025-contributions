@@ -453,6 +453,199 @@ pre::before {
   outline-offset: 2px;
 }
 
+/* Additional Dark Mode Fixes */
+[data-bs-theme="dark"] .btn-outline-primary {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-outline-success {
+  border-color: #198754;
+  color: #198754;
+}
+
+[data-bs-theme="dark"] .btn-outline-success:hover {
+  background-color: #198754;
+  border-color: #198754;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-outline-info {
+  border-color: #0dcaf0;
+  color: #0dcaf0;
+}
+
+[data-bs-theme="dark"] .btn-outline-info:hover {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #000;
+}
+
+[data-bs-theme="dark"] .btn-outline-warning {
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+[data-bs-theme="dark"] .btn-outline-warning:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}
+
+/* Dark mode form controls */
+[data-bs-theme="dark"] .form-control {
+  background-color: #212529;
+  border-color: #495057;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+  background-color: #212529;
+  border-color: #0d6efd;
+  color: #fff;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+[data-bs-theme="dark"] .form-control::placeholder {
+  color: #6c757d;
+}
+
+/* Dark mode pagination */
+[data-bs-theme="dark"] .pagination .page-link {
+  background-color: #212529;
+  border-color: #495057;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .pagination .page-link:hover {
+  background-color: #495057;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .pagination .page-item.disabled .page-link {
+  background-color: #212529;
+  border-color: #495057;
+  color: #6c757d;
+}
+
+/* Dark mode badges */
+[data-bs-theme="dark"] .badge.bg-primary {
+  background-color: #0d6efd !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-success {
+  background-color: #198754 !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-info {
+  background-color: #0dcaf0 !important;
+  color: #000 !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* Dark mode borders */
+[data-bs-theme="dark"] .border-top {
+  border-top-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] .border-light {
+  border-color: #495057 !important;
+}
+
+/* Dark mode text colors */
+[data-bs-theme="dark"] .text-muted {
+  color: #6c757d !important;
+}
+
+[data-bs-theme="dark"] .text-secondary {
+  color: #adb5bd !important;
+}
+
+/* Dark mode background utilities */
+[data-bs-theme="dark"] .bg-light {
+  background-color: #212529 !important;
+}
+
+[data-bs-theme="dark"] .bg-white {
+  background-color: #212529 !important;
+}
+
+/* Dark mode navbar improvements */
+[data-bs-theme="dark"] .navbar {
+  background-color: #212529 !important;
+  border-bottom: 1px solid #495057;
+}
+
+[data-bs-theme="dark"] .navbar-brand {
+  color: #fff !important;
+}
+
+[data-bs-theme="dark"] .nav-link {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .nav-link:hover {
+  color: #fff !important;
+}
+
+/* Dark mode card improvements */
+[data-bs-theme="dark"] .card {
+  background-color: #212529;
+  border-color: #495057;
+}
+
+[data-bs-theme="dark"] .card-header {
+  background-color: #343a40;
+  border-bottom-color: #495057;
+}
+
 /* Print styles */
 @media print {
   .navbar,

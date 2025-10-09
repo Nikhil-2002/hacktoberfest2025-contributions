@@ -26,10 +26,12 @@ const NavigationBar = () => {
       expand="lg"
       fixed="top"
       className="shadow-sm"
+      role="navigation"
+      aria-label="Main navigation"
     >
       <Container>
         {/* Logo Section */}
-        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center fw-bold" style={{ textDecoration: 'none' }}>
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center fw-bold" style={{ textDecoration: 'none' }} aria-label="CodeWithJs - Go to homepage">
           <div className="d-flex align-items-center">
             <div 
               className="d-flex align-items-center justify-content-center me-2 rounded"
@@ -59,24 +61,24 @@ const NavigationBar = () => {
         </Navbar.Brand>
 
         {/* Mobile Toggle */}
-        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Toggle aria-controls="navbar-nav" aria-label="Toggle navigation menu" />
 
         <Navbar.Collapse id="navbar-nav">
           {/* Navigation Links */}
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/basic" className="mx-2">
+          <Nav className="me-auto" role="menubar" aria-label="Main navigation menu">
+            <Nav.Link as={Link} to="/basic" className="mx-2" role="menuitem" aria-label="Go to Basic JavaScript questions">
               Basic
             </Nav.Link>
-            <Nav.Link as={Link} to="/intermediate" className="mx-2">
+            <Nav.Link as={Link} to="/intermediate" className="mx-2" role="menuitem" aria-label="Go to Intermediate JavaScript questions">
               Intermediate
             </Nav.Link>
-            <Nav.Link as={Link} to="/advanced" className="mx-2">
+            <Nav.Link as={Link} to="/advanced" className="mx-2" role="menuitem" aria-label="Go to Advanced JavaScript questions">
               Advanced
             </Nav.Link>
-            <Nav.Link as={Link} to="/pseudo" className="mx-2">
+            <Nav.Link as={Link} to="/pseudo" className="mx-2" role="menuitem" aria-label="Go to Pseudo Code questions">
               Pseudo Code
             </Nav.Link>
-            <Nav.Link as={Link} to="/interview" className="mx-2">
+            <Nav.Link as={Link} to="/interview" className="mx-2" role="menuitem" aria-label="Go to Interview questions">
               Interview
             </Nav.Link>
           </Nav>
@@ -99,6 +101,8 @@ const NavigationBar = () => {
                 transition: 'all 0.2s ease'
               }}
               onFocus={(e) => e.target.style.boxShadow = 'none'}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? (
                 <BsFillSunFill className="fs-5" />
@@ -115,8 +119,9 @@ const NavigationBar = () => {
                 variant={theme === "dark" ? "outline-light" : "outline-primary"}
                 size="sm"
                 className="d-flex align-items-center text-decoration-none"
+                aria-label="Sign in to your account"
               >
-                <BsPerson className="me-1" />
+                <BsPerson className="me-1" aria-hidden="true" />
                 Sign In
               </Button>
 
@@ -126,8 +131,9 @@ const NavigationBar = () => {
                 variant="primary"
                 size="sm"
                 className="d-flex align-items-center text-decoration-none"
+                aria-label="Create a new account"
               >
-                <BsBoxArrowInRight className="me-1" />
+                <BsBoxArrowInRight className="me-1" aria-hidden="true" />
                 Sign Up
               </Button>
             </div>
