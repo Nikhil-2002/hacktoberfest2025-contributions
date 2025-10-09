@@ -4,13 +4,13 @@ import SimpleAppointmentCard from "./SimpleAppointmentCard";
 
 export default function UpcomingSchedule() {
   return (
-    <div className="upcoming-schedule">
+    <section className="upcoming-schedule" aria-label="Upcoming appointments schedule">
       <h3>The Upcoming Schedule</h3>
-      <div className="appointments-list">
+      <div className="appointments-list" role="list" aria-label="List of upcoming appointments">
         {upcoming.map((item, idx) => (
           <SimpleAppointmentCard key={idx} {...item} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
