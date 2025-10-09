@@ -63,6 +63,25 @@ body {
   z-index: 999;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.navbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.navbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-header {
@@ -141,6 +160,8 @@ body {
   align-items: center;
   z-index: 1000;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header-actions {
@@ -410,14 +431,6 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1280px) {
-  .main-content {
-    margin-left: 0;
-    margin-top: 80px;
-    padding: 15px;
-  }
-}
-
-@media (max-width: 768px) {
   .navbar {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -433,11 +446,46 @@ body {
   .main-content {
     margin-left: 0;
     margin-top: 80px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 20px;
+  }
+  
+  .question-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    margin-top: 80px;
     padding: 15px;
   }
   
   .top-header {
     padding: 0 15px;
+  }
+  
+  .top-header h1 {
+    font-size: 18px;
   }
   
   .grid-cols-2,
@@ -448,26 +496,208 @@ body {
   
   .question-list {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
   
   .code-editor-actions {
     gap: 5px;
+    flex-wrap: wrap;
   }
   
   .code-editor-actions .btn {
     padding: 8px 12px;
     font-size: 12px;
   }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 10px;
+  }
+  
+  .top-header {
+    padding: 0 10px;
+  }
+  
+  .top-header h1 {
+    font-size: 16px;
+  }
+  
+  .navbar {
+    padding: 15px;
+  }
+  
+  .navbar-header {
+    margin-bottom: 20px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+  }
+  
+  .question-card {
+    padding: 12px;
+  }
+  
+  .modal {
+    margin: 10px;
+    padding: 20px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .modal-title {
+    font-size: 20px;
+  }
+  
+  .form-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    padding: 15px;
+    padding: 8px;
+  }
+  
+  .top-header {
+    padding: 0 8px;
+  }
+  
+  .top-header h1 {
+    font-size: 14px;
+  }
+  
+  .navbar {
+    padding: 10px;
+  }
+  
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .nav-link svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .card {
+    padding: 10px;
+  }
+  
+  .card-title {
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 8px 12px;
   }
   
   .modal {
-    margin: 20px;
-    padding: 20px;
+    margin: 5px;
+    padding: 15px;
+    max-width: calc(100vw - 10px);
+  }
+  
+  .modal-title {
+    font-size: 18px;
+  }
+  
+  .form-input {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .code-editor-header {
+    padding: 10px 15px;
+  }
+  
+  .code-editor-title {
+    font-size: 14px;
+  }
+  
+  .difficulty-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar {
+    width: 280px;
+  }
+  
+  .main-content {
+    padding: 10px;
+  }
+  
+  .top-header {
+    height: 60px;
+  }
+  
+  .main-content {
+    margin-top: 60px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .navbar-logo,
+  .top-header img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .top-header,
+  .btn,
+  .code-editor-actions {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #000;
   }
 }
 
