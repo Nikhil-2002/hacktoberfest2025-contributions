@@ -1,4 +1,4 @@
-import "./Sidebar.css";
+import "../styles/Sidebar.css";
 import navLinks from "../data/navigation";
 import { Home, Calendar, BarChart2, Settings } from "lucide-react";
 

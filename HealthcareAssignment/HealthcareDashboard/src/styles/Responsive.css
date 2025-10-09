@@ -1,13 +1,100 @@
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .dashboard-overview {
+  .app-container {
     flex-direction: column;
   }
 
   .sidebar {
-    display: none;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar li {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    margin-bottom: 0;
   }
 
   .main-content {
-    margin-left: 0;
+    width: 100%;
+  }
+
+  .header {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .header .search-bar {
+    min-width: 200px;
+    order: 3;
+    flex: 1;
+  }
+
+  .dashboard-overview {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .anatomy-section {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .health-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .calendar-view {
+    padding: 15px;
+  }
+
+  .calendar-grid {
+    gap: 1px;
+  }
+
+  .calendar-day {
+    min-height: 60px;
+    padding: 5px;
+  }
+
+  .upcoming-schedule {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header .search-bar {
+    min-width: 150px;
+  }
+
+  .health-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-day {
+    min-height: 50px;
+    font-size: 12px;
+  }
+
+  .appointment-card {
+    padding: 10px;
+  }
+
+  .appointment-card .title {
+    font-size: 14px;
   }
 }
