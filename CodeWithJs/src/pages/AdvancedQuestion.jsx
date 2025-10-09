@@ -140,7 +140,15 @@ const AdvancedQuestions = () => {
 
                 {/* Current & surrounding pages */}
                 {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
-                  const pageNum = Math.max(1, Math.min(currentPage - 2 + index, totalPages - 4 + index));
+                  let pageNum;
+                  if (currentPage <= 3) {
+                    pageNum = index + 1;
+                  } else if (currentPage >= totalPages - 2) {
+                    pageNum = totalPages - 4 + index;
+                  } else {
+                    pageNum = currentPage - 2 + index;
+                  }
+                  
                   if (pageNum <= totalPages && pageNum >= 1) {
                     return (
                       <Pagination.Item
