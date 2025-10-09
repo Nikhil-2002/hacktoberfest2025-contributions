@@ -1,6 +1,6 @@
 import React from "react";
 import { healthIndicators } from "../data/healthData";
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 
 export default function AnatomySection() {
   return (

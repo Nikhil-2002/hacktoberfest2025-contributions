@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <div 
+      <section 
         className={`py-5 mt-5 position-relative overflow-hidden`}
         style={{ 
           background: theme === 'dark' 
@@ -39,6 +39,7 @@ const Home = () => {
             : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
           minHeight: '500px'
         }}
+        aria-label="Hero section with platform introduction"
       >
         {/* Background Pattern */}
         <div 
@@ -61,22 +62,22 @@ const Home = () => {
                 and improve your coding skills step by step.
               </p>
               
-              <div className="row g-4 mb-5">
+              <div className="row g-4 mb-5" role="region" aria-label="Platform statistics">
                 <div className="col-md-4">
                   <div className="text-center p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                    <h2 className="fw-bold text-warning">{basicQuestions.length + intermediateQuestions.length + advancedQuestions.length + pseudoCodeQuestions.length + interviewQuestions.length}+</h2>
+                    <h2 className="fw-bold text-warning" aria-label={`${basicQuestions.length + intermediateQuestions.length + advancedQuestions.length + pseudoCodeQuestions.length + interviewQuestions.length} total questions`}>{basicQuestions.length + intermediateQuestions.length + advancedQuestions.length + pseudoCodeQuestions.length + interviewQuestions.length}+</h2>
                     <p className="mb-0">Total Questions</p>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="text-center p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                    <h2 className="fw-bold text-warning">5</h2>
+                    <h2 className="fw-bold text-warning" aria-label="5 categories available">5</h2>
                     <p className="mb-0">Categories</p>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="text-center p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-                    <h2 className="fw-bold text-warning">100%</h2>
+                    <h2 className="fw-bold text-warning" aria-label="100% free platform">100%</h2>
                     <p className="mb-0">Free</p>
                   </div>
                 </div>
@@ -84,10 +85,11 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
 
       {/* Features Section */}
-      <Container className="py-5">
+      <section className="py-5" aria-label="Learning categories">
+        <Container>
         <Row className="text-center mb-5">
           <Col>
             <h2 className={`display-5 fw-bold mb-3 ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
@@ -143,12 +145,15 @@ const Home = () => {
             }
           ].map((category, index) => (
             <Col md={6} lg={4} key={index} className="mb-4">
-              <div 
+              <article 
                 className={`card h-100 shadow-lg border-0 ${theme === 'dark' ? 'bg-dark text-light' : 'bg-white'}`}
                 style={{ 
                   transition: 'all 0.3s ease',
                   cursor: 'pointer'
                 }}
+                role="button"
+                tabIndex="0"
+                aria-label={`${category.title} - ${category.desc}. ${category.questions} questions available. Click to start learning.`}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-10px)';
                   e.currentTarget.style.boxShadow = theme === 'dark' 
@@ -160,6 +165,12 @@ const Home = () => {
                   e.currentTarget.style.boxShadow = theme === 'dark'
                     ? '0 4px 20px rgba(255,255,255,0.05)'
                     : '0 4px 20px rgba(0,0,0,0.1)';
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = category.path;
+                  }
                 }}
               >
                 <div className="card-body p-4 text-center">
@@ -178,18 +189,20 @@ const Home = () => {
                   <button 
                     className={`btn btn-${category.color} btn-lg w-100`}
                     onClick={() => window.location.href = category.path}
+                    aria-label={`Start learning ${category.title}`}
                   >
                     Start Learning
                   </button>
                 </div>
-              </div>
+              </article>
             </Col>
           ))}
         </Row>
-      </Container>
+        </Container>
+      </section>
 
       {/* Quick Preview Section */}
-      <div className={`py-5 ${theme === 'dark' ? 'bg-secondary bg-opacity-10' : 'bg-light'}`}>
+      <section className={`py-5 ${theme === 'dark' ? 'bg-secondary bg-opacity-10' : 'bg-light'}`} aria-label="Sample questions preview">
         <Container>
           <Row className="text-center mb-5">
             <Col>
@@ -211,7 +224,7 @@ const Home = () => {
             sectionId="preview"
           />
         </Container>
-      </div>
+      </section>
     </>
   );
 };

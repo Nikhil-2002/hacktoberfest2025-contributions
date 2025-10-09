@@ -87,12 +87,6 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo and Title */}
           <div className="flex items-center gap-3">
-            <button 
-              className="md:hidden btn-icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <Menu size={24} />
-            </button>
             <img 
               src="/Logo.png" 
               alt="JS Practice Platform" 
@@ -191,6 +185,15 @@ const Navbar = () => {
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
+      
+      {/* Mobile Menu Toggle Button - Only visible on mobile */}
+      <button 
+        className="fixed top-4 left-4 z-50 md:hidden btn-icon bg-white dark:bg-gray-800 shadow-lg"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        aria-label="Toggle mobile menu"
+      >
+        {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
       
       <AuthModal 
         isOpen={authModalOpen}
