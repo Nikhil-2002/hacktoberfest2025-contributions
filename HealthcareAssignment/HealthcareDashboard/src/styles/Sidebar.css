@@ -22,24 +22,36 @@
 }
 
 .sidebar li {
+  margin-bottom: 8px;
+}
+
+.nav-item-btn {
   display: flex;
   align-items: center;
   padding: 12px 15px;
-  margin-bottom: 8px;
   font-size: 14px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   color: rgba(255, 255, 255, 0.9);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
 }
 
-.sidebar li:hover {
+.nav-item-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateX(5px);
   color: white;
 }
 
-.sidebar li span {
+.nav-item-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.nav-item-btn span {
   margin-right: 12px;
   display: flex;
   align-items: center;
@@ -48,7 +60,7 @@
   height: 20px;
 }
 
-.sidebar li.active {
+.nav-item-btn.active {
   background: rgba(255, 255, 255, 0.2);
   color: white;
   font-weight: 600;

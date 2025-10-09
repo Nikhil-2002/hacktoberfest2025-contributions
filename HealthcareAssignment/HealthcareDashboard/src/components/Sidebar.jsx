@@ -11,16 +11,25 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" role="navigation" aria-label="Main navigation">
       <h3>General</h3>
-      <ul>
-        {navLinks.map((link) => (
-          <li key={link}>
-            <span>{icons[link] || "•"}</span>
-            {link}
-          </li>
-        ))}
-      </ul>
+      <nav>
+        <ul role="menubar">
+          {navLinks.map((link) => (
+            <li key={link} role="none">
+              <button 
+                className="nav-item-btn"
+                role="menuitem"
+                aria-label={`Navigate to ${link}`}
+                tabIndex="0"
+              >
+                <span aria-hidden="true">{icons[link] || "•"}</span>
+                {link}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </aside>
   );
 }

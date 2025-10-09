@@ -8,10 +8,10 @@ function App() {
   return (
     <div className="app-container">
       <Sidebar />
-      <div className="main-content">
+      <main className="main-content" role="main" aria-label="Healthcare dashboard main content">
         <Header />
         <DashboardMainContent />
-      </div>
+      </main>
     </div>
   );
 }
