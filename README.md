@@ -7,7 +7,7 @@ This repository is open for anyone who wants to make their first Pull Request (P
 
 ## 🌍 About Hacktoberfest
 Hacktoberfest is a month-long celebration of open-source software run by [DigitalOcean](https://hacktoberfest.com/).  
-Contribute to any open-source repo on GitHub and earn **cool swag & a T-shirt** 👕.  
+Contribute to any open-source repo on GitHub and earn **cool swags & a T-shirt** 👕.  
 
 ---
 
