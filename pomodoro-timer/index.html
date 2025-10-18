@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Timer</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdf6e3;
+    margin: 0;
+  }
+  .container {
+    text-align: center;
+    background: #fff8e1;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    width: 300px;
+  }
+  h1 {
+    margin-bottom: 10px;
+    color: #ff6f61;
+  }
+  #timer {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #333;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  button:hover { transform: scale(1.05); }
+  .start { background: #4caf50; color: white; }
+  .pause { background: #ff9800; color: white; }
+  .reset { background: #f44336; color: white; }
+  .settings {
+    margin-top: 20px;
+    text-align: left;
+  }
+  .settings label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  input[type=number] {
+    width: 60px;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Pomodoro Timer</h1>
+  <div id="timer">25:00</div>
+  <button class="start">Start</button>
+  <button class="pause">Pause</button>
+  <button class="reset">Reset</button>
+
+  <div class="settings">
+    <label>Work (minutes): <input type="number" id="workTime" value="25" min="1"></label>
+    <label>Break (minutes): <input type="number" id="breakTime" value="5" min="1"></label>
+  </div>
+</div>
+
+<script>
+  // DOM Elements
+  const timerEl = document.getElementById('timer');
+  const startBtn = document.querySelector('.start');
+  const pauseBtn = document.querySelector('.pause');
+  const resetBtn = document.querySelector('.reset');
+  const workInput = document.getElementById('workTime');
+  const breakInput = document.getElementById('breakTime');
+
+  // State Variables
+  let workMinutes = parseInt(workInput.value);
+  let breakMinutes = parseInt(breakInput.value);
+  let seconds = workMinutes * 60;
+  let timerInterval = null;
+  let isRunning = false;
+  let isWorkTime = true;
+
+  // Format seconds to mm:ss
+  function formatTime(s) {
+    const m = Math.floor(s / 60).toString().padStart(2,'0');
+    const sec = (s % 60).toString().padStart(2,'0');
+    return `${m}:${sec}`;
+  }
+
+  function updateTimerDisplay() {
+    timerEl.textContent = formatTime(seconds);
+  }
+
+  function switchSession() {
+    isWorkTime = !isWorkTime;
+    seconds = isWorkTime ? workMinutes * 60 : breakMinutes * 60;
+    alert(isWorkTime ? 'Work session starts!' : 'Break time!');
+    updateTimerDisplay();
+  }
+
+  function tick() {
+    if (seconds > 0) {
+      seconds--;
+      updateTimerDisplay();
+    } else {
+      switchSession();
+    }
+  }
+
+  // Button Handlers
+  startBtn.addEventListener('click', () => {
+    if (!isRunning) {
+      timerInterval = setInterval(tick, 1000);
+      isRunning = true;
+    }
+  });
+
+  pauseBtn.addEventListener('click', () => {
+    if (isRunning) {
+      clearInterval(timerInterval);
+      isRunning = false;
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    clearInterval(timerInterval);
+    isRunning = false;
+    workMinutes = parseInt(workInput.value);
+    breakMinutes = parseInt(breakInput.value);
+    seconds = isWorkTime ? workMinutes * 60 : breakMinutes * 60;
+    updateTimerDisplay();
+  });
+
+  // Update session durations dynamically
+  workInput.addEventListener('change', () => {
+    workMinutes = parseInt(workInput.value);
+    if (isWorkTime) seconds = workMinutes * 60;
+    updateTimerDisplay();
+  });
+  breakInput.addEventListener('change', () => {
+    breakMinutes = parseInt(breakInput.value);
+    if (!isWorkTime) seconds = breakMinutes * 60;
+    updateTimerDisplay();
+  });
+
+  // Initial Display
+  updateTimerDisplay();
+</script>
+
+</body>
+</html>
