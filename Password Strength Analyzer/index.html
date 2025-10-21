@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Strength Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #333;
+}
+
+.container {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #4e54c8;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.strength {
+  height: 10px;
+  width: 100%;
+  background: #eee;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#strength-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+#feedback {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Password Strength Analyzer</h2>
+
+    <div class="input-box">
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+      />
+      <span id="toggle" class="toggle">👁️</span>
+    </div>
+
+    <div class="strength">
+      <div id="strength-bar"></div>
+    </div>
+
+    <p id="feedback">Enter a password to check strength</p>
+  </div>
+
+  <script>
+    const password = document.getElementById("password");
+    const strengthBar = document.getElementById("strength-bar");
+const feedback = document.getElementById("feedback");
+const toggle = document.getElementById("toggle");
+
+password.addEventListener("input", () => {
+  const value = password.value;
+  let strength = 0;
+
+  const regexes = [
+    /.{8,}/, 
+    /[A-Z]/, 
+    /[a-z]/, 
+    /[0-9]/, 
+    /[^A-Za-z0-9]/, 
+  ];
+
+  regexes.forEach((regex) => {
+    if (regex.test(value)) strength++;
+  });
+
+  switch (strength) {
+    case 0:
+      strengthBar.style.width = "0%";
+      feedback.textContent = "Enter a password to check strength";
+      break;
+    case 1:
+      strengthBar.style.width = "20%";
+      strengthBar.style.backgroundColor = "red";
+      feedback.textContent = "Very Weak";
+      break;
+    case 2:
+      strengthBar.style.width = "40%";
+      strengthBar.style.backgroundColor = "orange";
+      feedback.textContent = "Weak";
+      break;
+    case 3:
+      strengthBar.style.width = "60%";
+      strengthBar.style.backgroundColor = "#f1c40f";
+      feedback.textContent = "Moderate";
+      break;
+    case 4:
+      strengthBar.style.width = "80%";
+      strengthBar.style.backgroundColor = "#2ecc71";
+      feedback.textContent = "Strong";
+      break;
+    case 5:
+      strengthBar.style.width = "100%";
+      strengthBar.style.backgroundColor = "#27ae60";
+      feedback.textContent = "Very Strong 💪";
+      break;
+  }
+});
+
+toggle.addEventListener("click", () => {
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+});
+
+  </script>
+</body>
+</html>
