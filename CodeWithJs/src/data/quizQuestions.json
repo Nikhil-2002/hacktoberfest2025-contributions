@@ -1,0 +1,53 @@
+[
+    {
+      "question": "What is the output of `console.log(typeof null)`?",
+      "options": ["object", "null", "undefined", "number"],
+      "answer": "object"
+    },
+    {
+      "question": "Which method is used to merge two arrays in JavaScript?",
+      "options": ["concat()", "merge()", "combine()", "append()"],
+      "answer": "concat()"
+    },
+    {
+      "question": "Which keyword is used to declare a constant in JavaScript?",
+      "options": ["var", "let", "const", "static"],
+      "answer": "const"
+    },
+    {
+      "question": "Which of the following is NOT a JavaScript data type?",
+      "options": ["String", "Number", "Boolean", "Character"],
+      "answer": "Character"
+    },
+    {
+      "question": "How do you create a function in JavaScript?",
+      "options": ["function = myFunc()", "function myFunc()", "func myFunc()", "def myFunc()"],
+      "answer": "function myFunc()"
+    },
+    {
+      "question": "Which operator is used for strict equality comparison?",
+      "options": ["==", "===", "=", "!="],
+      "answer": "==="
+    },
+    {
+      "question": "Which method converts a JSON string into a JavaScript object?",
+      "options": ["JSON.parse()", "JSON.stringify()", "JSON.object()", "JSON.convert()"],
+      "answer": "JSON.parse()"
+    },
+    {
+      "question": "Which of these is a JavaScript framework?",
+      "options": ["Django", "React", "Laravel", "Rails"],
+      "answer": "React"
+    },
+    {
+      "question": "Which symbol is used for single-line comments in JavaScript?",
+      "options": ["//", "/*", "#", "<!--"],
+      "answer": "//"
+    },
+    {
+      "question": "Which array method removes the last element?",
+      "options": ["pop()", "push()", "shift()", "unshift()"],
+      "answer": "pop()"
+    }
+  ]
+  
