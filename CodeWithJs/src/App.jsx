@@ -14,6 +14,7 @@ import AdvancedQuestions from './pages/AdvancedQuestion';
 import IntermediateQuestion from './pages/IntermediateQuestion';
 import InterviewQuestion from './pages/InterviewQuestion';
 import PseudoCodes from './pages/PseudoCodes';
+import QuizMode from './pages/QuizMode';
 
 // Import question data
 import basicQuestions from './data/basicQuestions.json';
@@ -232,16 +233,18 @@ function App() {
       <NavigationBar />
       
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/basic" element={<BasicQuestions />} />
-        <Route path="/advanced" element={<AdvancedQuestions />} />
-        <Route path="/intermediate" element={<IntermediateQuestion/>} />
-        <Route path="/interview" element={<InterviewQuestion/>} />
-        <Route path="/pseudo" element={<PseudoCodes/>} />
-        {/* Add other category routes here later */}
-      </Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/signin" element={<SignIn />} />
+  <Route path="/signup" element={<SignUp />} />
+  <Route path="/basic" element={<BasicQuestions />} />
+  <Route path="/advanced" element={<AdvancedQuestions />} />
+  <Route path="/intermediate" element={<IntermediateQuestion />} />
+  <Route path="/interview" element={<InterviewQuestion />} />
+  <Route path="/pseudo" element={<PseudoCodes />} />
+  <Route path="/quiz" element={<QuizMode />} />
+  {/* Add other category routes here later */}
+</Routes>
+
       
       <Footer />
     </div>

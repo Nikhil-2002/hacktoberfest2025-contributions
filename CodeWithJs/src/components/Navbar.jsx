@@ -160,8 +160,6 @@
 //     </Navbar>
 //   );
 // };
-
-// export default NavigationBar;
 import { useSelector, useDispatch } from "react-redux";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -235,13 +233,16 @@ const NavigationBar = () => {
               Sign Up
             </Button>
 
+            {/* Take Quiz Button */}
+            <Button as={Link} to="/quiz" variant="warning" className="btn-quiz">
+              Take Quiz
+            </Button>
+
             <Button
               variant="link"
               size="sm"
               onClick={handleThemeToggle}
-              className={`theme-toggle-btn ${
-                theme === "dark" ? "dark-mode" : "light-mode"
-              }`}
+              className={`theme-toggle-btn ${theme === "dark" ? "dark-mode" : "light-mode"}`}
             >
               {theme === "dark" ? (
                 <BsFillSunFill className="fs-5" />
