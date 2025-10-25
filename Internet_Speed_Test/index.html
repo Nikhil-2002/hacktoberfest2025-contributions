@@ -2,75 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Internet Speed Test</title>
+
+  <!-- Use preload for faster CSS loading -->
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Improve SEO and accessibility -->
+  <meta name="description" content="Simple Internet Speed Test to check your ping, download speed, and throughput." />
 </head>
 <body>
+  <header>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span class="theme-text">Dark</span>
+    </button>
+  </header>
 
-  <button class="theme-toggle" id="themeToggle">
-    <span class="theme-icon">🌙</span>
-    <span class="theme-text">Dark</span>
-  </button>
-
-  
-  <div id="landingPage">
-    <div class="landing-content">
-      <h1 class="landing-title">Internet Speed Test</h1>
-      <p class="landing-subtitle">Test your internet connection speed with precision</p>
-      <button class="start-btn" id="goToTest">Start Testing</button>
-    </div>
-  </div>
-
-
-  <div id="testPage">
-    <main class="container">
-      <div class="header">
-        <h1>Speed Test</h1>
-        <button class="back-btn" id="backBtn">← Back</button>
+  <main>
+    <!-- Landing Section -->
+    <section id="landingPage" class="landing">
+      <div class="landing-content">
+        <h1 class="landing-title">Internet Speed Test</h1>
+        <p class="landing-subtitle">Test your internet connection speed with precision</p>
+        <button class="start-btn" id="goToTest">Start Testing</button>
       </div>
+    </section>
 
-      <div class="cards">
-        <div class="card">
-          <h2>Ping</h2>
-          <p id="ping">— ms</p>
+    <!-- Test Section -->
+    <section id="testPage" hidden>
+      <div class="container">
+        <div class="header">
+          <h1>Speed Test</h1>
+          <button class="back-btn" id="backBtn">← Back</button>
         </div>
 
-        <div class="card">
-          <h2>Download</h2>
-          <p id="download">— Mbps</p>
+        <div class="cards">
+          <div class="card">
+            <h2>Ping</h2>
+            <p id="ping">— ms</p>
+          </div>
+
+          <div class="card">
+            <h2>Download</h2>
+            <p id="download">— Mbps</p>
+          </div>
         </div>
-      </div>
 
-      <div class="controls">
-        <label for="url">Test file URL</label>
-        <input id="url" type="text" value="https://speed.hetzner.de/10MB.bin" />
-        <div class="options">
-          <label><input type="checkbox" id="repeat" /> Repeat (3 runs & average)</label>
-          <label><input type="checkbox" id="showBytes" /> Show bytes</label>
+        <div class="controls">
+          <label for="url">Test file URL</label>
+          <input id="url" type="text" value="https://speed.hetzner.de/10MB.bin" />
+          <div class="options">
+            <label><input type="checkbox" id="repeat" /> Repeat (3 runs & average)</label>
+            <label><input type="checkbox" id="showBytes" /> Show bytes</label>
+          </div>
+          <button id="startBtn" class="test-btn">Start Test</button>
         </div>
-        <button id="startBtn" class="test-btn">Start Test</button>
+
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar"><span id="progressText">Idle</span></div>
+        </div>
+
+        <section class="results">
+          <h3>Details</h3>
+          <ul>
+            <li><span>Elapsed:</span> <strong id="elapsed">0.00 s</strong></li>
+            <li><span>Bytes downloaded:</span> <strong id="bytes">0</strong></li>
+            <li><span>Throughput:</span> <strong id="throughput">0 Mbps</strong></li>
+          </ul>
+        </section>
       </div>
+    </section>
+  </main>
 
-      <div class="progress-wrap">
-        <div class="progress-bar" id="progressBar"><span id="progressText">Idle</span></div>
-      </div>
+  <footer>
+    <small>Run this page from a local web server (recommended). Replace the test file URL if you get CORS errors.</small>
+  </footer>
 
-      <section class="results">
-        <h3>Details</h3>
-        <ul>
-          <li><span>Elapsed:</span> <strong id="elapsed">0.00 s</strong></li>
-          <li><span>Bytes downloaded:</span> <strong id="bytes">0</strong></li>
-          <li><span>Throughput:</span> <strong id="throughput">0 Mbps</strong></li>
-        </ul>
-      </section>
-
-      <footer>
-        <small>Run this page from a local web server (recommended). Replace the test file URL if you get CORS errors.</small>
-      </footer>
-    </main>
-  </div>
-
-  <script src="script.js"></script> 
+  <!-- Load script at the end to improve performance -->
+  <script src="script.js" defer></script>
 </body>
 </html>
