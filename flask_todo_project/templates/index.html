@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+
+
+
+    <div class="container mb-3">
+        <h1>Add a todo</h1>
+        <form action="/" method="POST">
+  <div class="mb-3">
+    <label for="title" class="form-label">Todo Title</label>
+    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Todo Description</label>
+    <input type="text" class="form-control" name="description" id="description">
+  </div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+    </div>
+    <div class="container my-3">
+        <h2>Your Todos</h2>
+        <table class="table">
+  
+    {% if allTodo|length==0 %}
+            
+            <div class="alert alert-dark" role="alert">
+ No Todos found. Add your first Todo now!
+</div>
+        {% else %}
+        <thead>
+    <tr>
+      <th scope="col">SNo</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Time</th>
+       <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    {% for todo in allTodo %}
+         <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{todo.title}}</td>
+      <td>{{todo.description}}</td>
+      <td>{{todo.date_created}}</td>
+      <td>
+  <a href="/update/{{todo.sno}}" class="btn btn-outline-dark btn-sm me-1">Update</a>
+  <a href="/delete/{{todo.sno}}" class="btn btn-outline-dark btn-sm">Delete</a>
+</td>
+
+    </tr>
+    {% endfor %}
+     {% endif %}
+   
+     
+  </tbody>
+</table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        
+    {% endblock body %}
