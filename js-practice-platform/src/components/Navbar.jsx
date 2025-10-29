@@ -24,11 +24,13 @@ const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { darkMode } = useSelector((state) => state.theme);
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const { isAuthenticated, token, user } = useSelector((state) => state.auth);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('signin');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  console.table("auth: "+user)
+  console.dir("auth: ", user? {1: user.firstname, 2: user.lastname, 3:user.email}: "no");
   const navItems = [
     {
       path: '/',
@@ -113,7 +115,7 @@ const Navbar = () => {
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             
-            {!isAuthenticated ? (
+            {!token ? (
               <>
                 <button onClick={handleSignIn} className="btn btn-secondary">
                   <LogIn size={16} />
@@ -128,10 +130,10 @@ const Navbar = () => {
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-sm font-bold text-gray-900">
-                    {user?.name?.charAt(0) || 'U'}
+                    {user?.fullname?.charAt(0) || 'U'}
                   </div>
                   <span className="text-gray-700 dark:text-gray-300 text-sm font-medium hidden sm:block">
-                    {user?.name}
+                    {user?.fullname}
                   </span>
                 </div>
                 <button onClick={handleLogout} className="btn btn-secondary">

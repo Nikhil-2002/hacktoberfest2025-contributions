@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { X } from 'lucide-react';
-import { loginStart, loginSuccess, loginFailure } from '../store/slices/authSlice';
+import { loginStart, loginSuccess, loginFailure, signup, login } from '../store/slices/authSlice';
 
 const AuthModal = ({ isOpen, onClose, mode = 'signin' }) => {
   const [formMode, setFormMode] = useState(mode);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    name: '',
+    fullname: '',
     confirmPassword: ''
   });
   const [errors, setErrors] = useState({});
@@ -16,6 +16,7 @@ const AuthModal = ({ isOpen, onClose, mode = 'signin' }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // console.log("->"+name, value);
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -66,23 +67,46 @@ const AuthModal = ({ isOpen, onClose, mode = 'signin' }) => {
     dispatch(loginStart());
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const userData = {
-        id: Math.random().toString(36).substr(2, 9),
-        name: formData.name || formData.email.split('@')[0],
-        email: formData.email
-      };
+      // const userData = {
+      //   id: Math.random().toString(36).substr(2, 9),
+      //   name: formData.name || formData.email.split('@')[0],
+      //   email: formData.email
+      // };
 
-      dispatch(loginSuccess(userData));
-      onClose();
+      // dispatch(loginSuccess(userData));
+      // onClose();
       
+      // setFormData({
+      //   email: '',
+      //   password: '',
+      //   name: '',
+      //   confirmPassword: ''
+      // });
+
+      if(formMode === "signin")
+      {
+        console.log("pk")
+       dispatch(login({email: formData.email, password: formData.password}));
+        // console.log("val", val);
+        // dispatch(loginSuccess(response.data));
+      }
+      else
+      if(formMode === "signup")
+      {
+        console.log("kk", formData.email, formData.password, formData.name);
+        dispatch(signup({fullname: formData.name, email: formData.email, password: formData.password}));
+      }
+
       setFormData({
         email: '',
         password: '',
         name: '',
         confirmPassword: ''
       });
+      onClose();
+      
     } catch (error) {
       dispatch(loginFailure('Authentication failed. Please try again.'));
     }
