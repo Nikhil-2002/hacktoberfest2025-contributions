@@ -2,15 +2,81 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 30px;
   background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e9ecef;
+}
+
+.header h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .header .search-bar {
   display: flex;
   align-items: center;
-  background: #f0f0f0;
-  padding: 5px 10px;
-  border-radius: 8px;
+  background: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 25px;
+  border: 1px solid #e9ecef;
+  min-width: 300px;
+}
+
+.header .search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 8px;
+  font-size: 14px;
+  color: #6c757d;
+  width: 100%;
+}
+
+.header .search-bar input::placeholder {
+  color: #adb5bd;
+}
+
+.header .profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.header .profile img {
+  border-radius: 50%;
+  border: 2px solid #e9ecef;
+}
+
+.header .add-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header .add-btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.header svg {
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.header svg:hover {
+  color: #007bff;
 }

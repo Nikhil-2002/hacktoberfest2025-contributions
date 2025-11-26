@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsEnvelope, BsLock, BsEye, BsEyeSlash, BsCode, BsPerson } from 'react-icons/bs';
+import AuthContext from '../Context/AuthContext.js';
 
 const SignUp = () => {
   const theme = useSelector((state) => state.theme.mode);
@@ -15,8 +16,11 @@ const SignUp = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [msg, setMsg] = useState('');
+  const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const {handleSignUp} = useContext(AuthContext)
 
   const handleChange = (e) => {
     setFormData({
@@ -28,27 +32,49 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setMsg('');
+    setErr(false);
 
     // Basic validation
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setMsg('Passwords do not match');
+      setErr(true);
       setLoading(false);
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setMsg('Password must be at least 6 characters long');
+      setErr(true);
       setLoading(false);
       return;
     }
 
     // Simulate API call
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   // For demo purposes, just show success
+    //   alert('Account created successfully! (This is a demo)');
+    // }, 1500);
+
+    let res = await handleSignUp(formData.firstName, formData.lastName, formData.email, formData.password);
+
+    if(res.status == 201)
+    {
+      setErr(false);
+      setMsg(res.message);
       setLoading(false);
-      // For demo purposes, just show success
-      alert('Account created successfully! (This is a demo)');
-    }, 1500);
+      navigate("/");
+      return;
+    }
+    else
+    {
+      setErr(true);
+      setMsg(res.message)
+      setLoading(false);
+      return;
+    }
+    
   };
 
   return (
@@ -78,9 +104,9 @@ const SignUp = () => {
                   </p>
                 </div>
 
-                {error && (
-                  <Alert variant="danger" className="mb-3">
-                    {error}
+                {msg && (
+                  <Alert variant={err ? 'danger' : 'success'} className="mb-3">
+                    {msg}
                   </Alert>
                 )}
 

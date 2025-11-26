@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsEnvelope, BsLock, BsEye, BsEyeSlash, BsCode } from 'react-icons/bs';
+import AuthContext from '../Context/AuthContext.js';
 
 const SignIn = () => {
   const theme = useSelector((state) => state.theme.mode);
@@ -11,8 +12,12 @@ const SignIn = () => {
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [msg, setMsg] = useState('');
+  const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const {handleLogin} = useContext(AuthContext);
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -24,14 +29,33 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-
+    setMsg('');
+    
     // Simulate API call
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   // For demo purposes, just show success
+    //   alert('Sign in successful! (This is a demo)');
+    // }, 1500);
+
+    let res = await handleLogin(formData.email, formData.password);
+    
+    if(res.status == 200)
+    {
       setLoading(false);
-      // For demo purposes, just show success
-      alert('Sign in successful! (This is a demo)');
-    }, 1500);
+      setErr(false);
+      setMsg((preVal)=>preVal = res.message);
+      navigate("/");
+      return;
+    }
+    else
+    {
+      setLoading(false);
+      setErr(true);
+      setMsg((preVal)=> preVal = res.message);
+      return;
+    }
+
   };
 
   return (
@@ -61,9 +85,9 @@ const SignIn = () => {
                   </p>
                 </div>
 
-                {error && (
-                  <Alert variant="danger" className="mb-3">
-                    {error}
+                {msg && (
+                  <Alert variant={err? 'danger' : 'success'} className="mb-3">
+                    {msg}
                   </Alert>
                 )}
 

@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "name": "Annapurna Mess",
+        "type": "Veg",
+        "rating": 4.5,
+        "distance": "0.5 km",
+        "price": 80,
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    },
+    {
+        "id": 2,
+        "name": "Spicy Bites",
+        "type": "Non-Veg",
+        "rating": 4.2,
+        "distance": "1.2 km",
+        "price": 120,
+        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    },
+    {
+        "id": 3,
+        "name": "Ghar Ka Khana",
+        "type": "Veg",
+        "rating": 4.8,
+        "distance": "2.0 km",
+        "price": 90,
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    },
+    {
+        "id": 4,
+        "name": "Andhra Spice",
+        "type": "Non-Veg",
+        "rating": 4.6,
+        "distance": "3.5 km",
+        "price": 150,
+        "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    },
+    {
+        "id": 5,
+        "name": "Healthy Eats",
+        "type": "Veg",
+        "rating": 4.3,
+        "distance": "1.8 km",
+        "price": 110,
+        "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    },
+    {
+        "id": 6,
+        "name": "Student's Corner",
+        "type": "Veg",
+        "rating": 4.0,
+        "distance": "0.2 km",
+        "price": 70,
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "location": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        }
+    }
+]

@@ -1,21 +1,27 @@
-import { AddToCart } from "./AddToCart";
 
+import { Link } from "react-router-dom"; // Correct import
 export const Header = () => {
   return (
     <header className="site-header">
       <div className="container">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           ShopMate
-        </a>
+        </Link>
 
         <nav className="navbar">
-          <a href="/">Home</a>
-          <a href="/shop">Shop</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/shop">Shop</Link> 
+            </li>
+             <li>
+              <Link to="/">About</Link> 
+            </li>
+          </ul>
         </nav>
 
-        <AddToCart />
       </div>
     </header>
   );

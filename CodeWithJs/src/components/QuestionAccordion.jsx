@@ -115,23 +115,40 @@ const QuestionAccordion = ({ questions, title, icon: IconComponent, badgeColor, 
                     <span className="fw-semibold fs-6">{question.question}</span>
                   </div>
                 </Accordion.Header>
+         <Accordion.Body
+  className={theme === 'dark' ? 'bg-dark text-light border-secondary' : 'bg-white text-dark'}
+  style={{
+    borderTop: `1px solid ${theme === 'dark' ? '#444' : '#dee2e6'}`,
+    fontSize: '0.95rem',
+    lineHeight: '1.6',
+  }}
+>
+  <div
+    className="answer-content"
+    style={{
+      maxHeight: '300px',      
+      overflowY: 'auto',       
+      paddingRight: '10px',    
+      scrollbarWidth: 'thin',  
+    }}
+  >
+    {formatAnswer(question.answer)}
+  </div>
+  <div className={`mt-4 pt-3  border-top ${theme === 'dark' ? 'border-secondary' : 'border-light'}`}>
+    <small className={theme === 'dark' ? 'text-muted' : 'text-secondary'}>
+      Question ID: {question.id} | 
+      Category: {title} | 
+      <span className="ms-1">
+        💡 Tip: Practice implementing this code yourself for better understanding
+      </span>
+    </small>
+  </div>
+</Accordion.Body>
 
-                {/* Accordion Body (Answer) */}
-                <Accordion.Body
-                  className={theme === 'dark' ? 'bg-dark text-light border-secondary' : 'bg-white text-dark'}
-                  style={{
-                    borderTop: `1px solid ${theme === 'dark' ? '#444' : '#dee2e6'}`,
-                    fontSize: '0.95rem',
-                    lineHeight: '1.6'
-                  }}
-                >
-                  {/* Render formatted answer */}
-                  <div className="answer-content">
-                    {formatAnswer(question.answer)}
-                  </div>
+
 
                   {/* Extra Info */}
-                  <div className={`mt-4 pt-3 border-top ${theme === 'dark' ? 'border-secondary' : 'border-light'}`}>
+                  {/* <div className={`mt-4 pt-3 border-top ${theme === 'dark' ? 'border-secondary' : 'border-light'}`}>
                     <small className={theme === 'dark' ? 'text-muted' : 'text-secondary'}>
                       Question ID: {question.id} | 
                       Category: {title} | 
@@ -139,8 +156,8 @@ const QuestionAccordion = ({ questions, title, icon: IconComponent, badgeColor, 
                         💡 Tip: Practice implementing this code yourself for better understanding
                       </span>
                     </small>
-                  </div>
-                </Accordion.Body>
+                  </div> */}
+               
               </Accordion.Item>
             ))}
           </Accordion>
