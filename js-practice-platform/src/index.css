@@ -36,22 +36,41 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.65em 1.4em;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #e5e7eb;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
+
+/* Hover */
 button:hover {
-  border-color: #646cff;
+  background: linear-gradient(135deg, #2a2f3a, #1f2937);
+  border-color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
-button:focus,
+
+/* Active (click feedback) */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus (keyboard users – clean but visible) */
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
 }
 
 @media (prefers-color-scheme: light) {
