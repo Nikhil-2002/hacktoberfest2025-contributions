@@ -7,19 +7,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Theme Toggle Button (Icon only for mobile) -->
+  <div class="theme-toggle-container">
+    <button id="theme-toggle-btn" class="theme-toggle-btn">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </div>
+
+  <!-- Notification Popup -->
+  <div id="notification" class="notification hidden">
+    <div class="notification-content">
+      <span class="notification-icon">⏰</span>
+      <p class="notification-text">Time to go to bed!</p>
+    </div>
+  </div>
+
+  <!-- Time Input Popup -->
+  <div id="time-popup" class="popup hidden">
+    <div class="popup-content time-content">
+      <span class="close-btn">&times;</span>
+      <h2>Set Your Bedtime</h2>
+      <div class="time-input-container">
+        <div class="time-input-group">
+          <input type="number" id="hours" min="1" max="12" placeholder="HH" class="time-input" value="10">
+          <span class="time-separator">:</span>
+          <input type="number" id="minutes" min="0" max="59" placeholder="MM" class="time-input" value="30">
+          <span class="time-separator">:</span>
+          <input type="number" id="seconds" min="0" max="59" placeholder="SS" class="time-input" value="00">
+        </div>
+        <div class="ampm-selector">
+          <button id="am-btn" class="ampm-btn">AM</button>
+          <button id="pm-btn" class="ampm-btn active">PM</button>
+        </div>
+      </div>
+      <button id="set-time-btn" class="popup-btn">Set Bedtime</button>
+    </div>
+  </div>
+
   <div class="container">
     <h1>SleepCircle 🌙</h1>
     <p class="subtitle">Track your bedtime and relax into better sleep</p>
 
-    <div class="input-section">
-      <label for="bedtime">Set your bedtime:</label>
-      <input type="time" id="bedtime">
-      <button id="setBtn">Set Goal</button>
-    </div>
+    <!-- Simplified Sleep Timer Button -->
+    <button id="set-sleep-timer" class="sleep-timer-btn">Set Sleep Timer</button>
 
     <div class="circle-container">
       <div class="circle">
         <div id="progress"></div>
+        <!-- Wave effect will be added dynamically -->
       </div>
       <p id="status">No bedtime set yet</p>
     </div>
@@ -28,6 +63,23 @@
       <h3>Sleep Tip:</h3>
       <p id="tip">Good sleep improves memory, mood, and energy!</p>
     </div>
+  </div>
+
+  <!-- Enhanced background animations -->
+  <div class="background-animations">
+    <div class="floating-circle circle-1"></div>
+    <div class="floating-circle circle-2"></div>
+    <div class="floating-circle circle-3"></div>
+    <div class="floating-circle circle-4"></div>
+    <div class="floating-circle circle-5"></div>
+    <div class="floating-circle circle-6"></div>
+  </div>
+
+  <!-- Wave container for soothing effect -->
+  <div class="wave-container">
+    <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path class="wave-path" d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z"></path>
+    </svg>
   </div>
 
   <script src="script.js"></script>
