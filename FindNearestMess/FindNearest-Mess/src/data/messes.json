@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Sunny Veg Mess",
+    "category": "veg",
+    "latitude": 12.964000,
+    "longitude": 80.245500,
+    "menu": ["Rice", "Dal", "Chapati", "Sabzi"],
+    "price": 100,
+    "rating": 4.5,
+    "timings": "8:00 AM - 8:00 PM",
+    "contact": "9876543210"
+  },
+  {
+    "id": 2,
+    "name": "Spicy Non-Veg Mess",
+    "category": "non-veg",
+    "latitude": 12.965500,
+    "longitude": 80.246200,
+    "menu": ["Chicken Curry", "Mutton Curry", "Rice", "Roti"],
+    "price": 150,
+    "rating": 4.2,
+    "timings": "9:00 AM - 9:00 PM",
+    "contact": "9123456780"
+  },
+  {
+    "id": 3,
+    "name": "Tasty Tiffin Service",
+    "category": "tiffin",
+    "latitude": 12.934500,
+    "longitude": 77.623500,
+    "menu": ["Idly", "Dosa", "Upma", "Vada"],
+    "price": 80,
+    "rating": 4.0,
+    "timings": "7:00 AM - 2:00 PM",
+    "contact": "9988776655"
+  },
+  {
+    "id": 4,
+    "name": "Quick Bites Dining",
+    "category": "dining",
+    "latitude": 12.936000,
+    "longitude": 77.622800,
+    "menu": ["Pizza", "Burger", "Pasta", "Sandwich"],
+    "price": 200,
+    "rating": 4.7,
+    "timings": "11:00 AM - 11:00 PM",
+    "contact": "9871234567"
+  },
+  {
+    "id": 5,
+    "name": "Healthy Green Mess",
+    "category": "veg",
+    "latitude": 12.933700,
+    "longitude": 77.625800,
+    "menu": ["Salad", "Vegetable Soup", "Brown Rice", "Chapati"],
+    "price": 120,
+    "rating": 4.3,
+    "timings": "8:00 AM - 8:00 PM",
+    "contact": "9765432109"
+  }
+]
