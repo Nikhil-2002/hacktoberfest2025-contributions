@@ -1,5 +1,22 @@
 [
   {
+    "id": "js-basic-004",
+    "title": "Array Methods Practice",
+    "category": "javascript-basics",
+    "difficulty": "easy",
+    "question": "Use array methods (map, filter, and reduce) to transform the given array of numbers.",
+    "description": "Practice using essential array methods in JavaScript. You'll need to:\n1. Use map() to double each number\n2. Use filter() to keep only even numbers\n3. Use reduce() to calculate the sum",
+    "starterCode": "const numbers = [1, 2, 3, 4, 5];\n\n// 1. Double each number using map()\nconst doubled = // Your code here\n\n// 2. Filter even numbers using filter()\nconst evenNumbers = // Your code here\n\n// 3. Calculate sum using reduce()\nconst sum = // Your code here\n\nconsole.log('Doubled numbers:', doubled);\nconsole.log('Even numbers:', evenNumbers);\nconsole.log('Sum:', sum);",
+    "solution": "const numbers = [1, 2, 3, 4, 5];\n\n// 1. Double each number using map()\nconst doubled = numbers.map(num => num * 2);\n\n// 2. Filter even numbers using filter()\nconst evenNumbers = numbers.filter(num => num % 2 === 0);\n\n// 3. Calculate sum using reduce()\nconst sum = numbers.reduce((acc, curr) => acc + curr, 0);\n\nconsole.log('Doubled numbers:', doubled);\nconsole.log('Even numbers:', evenNumbers);\nconsole.log('Sum:', sum);",
+    "testCases": [
+      {
+        "input": "numbers = [1, 2, 3, 4, 5]",
+        "expected": "Doubled numbers: [2,4,6,8,10]\nEven numbers: [2,4]\nSum: 15",
+        "description": "Should correctly transform array using map, filter, and reduce"
+      }
+    ]
+  },
+  {
     "id": "js-basic-001",
     "title": "Variables and Data Types",
     "category": "javascript-basics",
