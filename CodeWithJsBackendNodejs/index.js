@@ -28,15 +28,24 @@ main().then(() => {
 app.post("/signup", async (req, res) => {
     try {
         let { firstname, lastname, email, password } = req.body;
-        if (firstname.length <= 0 || lastname.length <= 0 || email.length <= 0 || password.length <= 0) {
+
+        if (!firstname || !lastname || !email || !password) {
             return res.status(422).json({ message: "Some information is missing" });
         }
 
-        let checkUser = await user.find({ email });
-
-        if (checkUser.length) {
-            return res.status(409).json({ message: "user already exist with this email" });
+        // Email validation
+        if (!email.includes("@")) {
+            return res.status(422).json({ message: "Invalid email format" });
         }
+
+        let checkUser = await user.find({ email });
+        if (checkUser.length) {
+            return res.status(409).json({ message: "User already exist with this email" });
+        }
+
+        // Hash password
+        const salt = await bcrypt.genSalt(10);
+        password = await bcrypt.hash(password, salt);
 
         const newUser = new user({
             firstname,
@@ -46,13 +55,15 @@ app.post("/signup", async (req, res) => {
         });
 
         let usrsave = await newUser.save();
-        console.log(usrsave)
+        usrsave.password = undefined;
+        console.log("New user registered");
 
         res.status(201).json({ message: "User registered successfully", token: await newUser.generateToken() });
     } catch (error) {
         res.status(500).json({ message: error });
     }
 });
+
 
 app.post("/login", async (req, res) => {
 
